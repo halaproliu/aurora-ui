@@ -23,3 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 .pnpm-store/*
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
