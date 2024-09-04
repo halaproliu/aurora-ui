@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form v-bind="$attrs" @submit="onSubmit">
     <slot></slot>
   </form>
 </template>
@@ -18,4 +18,10 @@ provide<FormContext>(FormContextKey, {
   handleSubmit,
   ...rest,
 });
+
+const onSubmit = handleSubmit((values) => {
+  console.log(values);
+});
 </script>
+
+<style lang="scss" scoped></style>

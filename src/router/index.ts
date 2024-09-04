@@ -1,25 +1,33 @@
-import { createWebHistory, createRouter, RouteRecordRaw } from 'vue-router'
+import { createWebHistory, createRouter, RouteRecordRaw } from 'vue-router';
 
-const routes: RouteRecordRaw[] = [{
+const routes: RouteRecordRaw[] = [
+  {
     path: '/form',
-    children: [{
+    component: () => import('@/views/form/index.vue'),
+    children: [
+      {
         path: '',
-        component: () => import('@/views/form/index.vue')
-    }, {
+        component: () => import('@/views/form/seperate-form.vue'),
+      },
+      {
         path: 'dynamic',
-        component: () => import('@/views/form/dynamic-form.vue')
-    }]
-}, {
+        component: () => import('@/views/form/dynamic-form.vue'),
+      },
+    ],
+  },
+  {
     path: '/404',
-    component: () => import('@/views/404/index.vue')
-}, {
+    component: () => import('@/views/404/index.vue'),
+  },
+  {
     path: '/:pathMatch(.*)*',
-    redirect: '/404'
-}]
+    redirect: '/404',
+  },
+];
 
 const router = createRouter({
-    history: createWebHistory(),
-    routes
-})
+  history: createWebHistory(),
+  routes,
+});
 
-export default router
+export default router;

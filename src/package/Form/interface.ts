@@ -20,6 +20,12 @@ export interface FormProps<T extends GenericObject> {
 
 export interface FormItemProps {
   name: string;
+  label?: string;
+  width?: string | number;
+  direction?: 'horizontal' | 'vertical';
+  required?: boolean;
+  errorMessage?: string;
+  rules?: RuleExpression<unknown>;
 }
 
 export interface UseFormProps<T extends GenericObject> {
